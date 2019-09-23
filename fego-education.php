@@ -53,11 +53,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
  */      
 function launch () {
+    /*
+     * load up my options. Declare first as can be used by admin and user sections.
+     */
+    include_once FEGOEDUCATION_DIR .'admin/pages/class-options.php';
+    $my_options = new options_admin();
+    add_action( 'admin_menu', array( $my_options, 'add_options_page' ) );
         /*
      *  register any custom post types       
      */
 
-    require_once ( FEGOEDUCATION_DIR . 'admin/class-welcome.php');         
+    require_once ( FEGOEDUCATION_DIR . 'admin/pages/class-welcome.php');         
     $my_welcome = new welcome_class();
         /*
      *  register any custom post types       
