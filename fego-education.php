@@ -69,6 +69,13 @@ function launch () {
      *  register any custom post types       
      */
     $call_my_post_types = new fegoeducation_post_types();
+    /*
+     * For the admin section
+     */    
+    if (is_admin()) {
+        include_once ( FEGOEDUCATION_DIR . 'admin/class-admin-control.php');
+            $my_control = new admin_control();  
+    }
 }
 launch();
 
